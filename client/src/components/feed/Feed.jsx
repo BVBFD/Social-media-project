@@ -14,9 +14,6 @@ const Feed = (props) => {
         <Post />
         <Post />
         <Post />
-        <Post />
-        <Post />
-        <Post />
       </div>
     </div>
   );
