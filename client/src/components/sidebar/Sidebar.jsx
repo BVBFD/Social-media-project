@@ -10,7 +10,9 @@ import {
   School,
 } from '@mui/icons-material';
 import React from 'react';
+import CloseFriend from '../closeFriend/CloseFriend';
 import styles from './Sidebar.module.css';
+import { Users } from '../../dummyData';
 
 const Sidebar = (props) => {
   return (
@@ -57,53 +59,9 @@ const Sidebar = (props) => {
         <button className={styles.sidebarButton}>Show More</button>
         <hr className={styles.sidebarHr} />
         <ul className={styles.sidebarFriendList}>
-          <li className={styles.sidebarFriend}>
-            <img
-              className={styles.sidebarFriendImg}
-              src='../assets/person/2.jpeg'
-            />
-            <span className={styles.sidebarFriendName}>Jane Lee</span>
-          </li>
-
-          <li className={styles.sidebarFriend}>
-            <img
-              className={styles.sidebarFriendImg}
-              src='../assets/person/2.jpeg'
-            />
-            <span className={styles.sidebarFriendName}>Jane Lee</span>
-          </li>
-
-          <li className={styles.sidebarFriend}>
-            <img
-              className={styles.sidebarFriendImg}
-              src='../assets/person/2.jpeg'
-            />
-            <span className={styles.sidebarFriendName}>Jane Lee</span>
-          </li>
-
-          <li className={styles.sidebarFriend}>
-            <img
-              className={styles.sidebarFriendImg}
-              src='../assets/person/2.jpeg'
-            />
-            <span className={styles.sidebarFriendName}>Jane Lee</span>
-          </li>
-
-          <li className={styles.sidebarFriend}>
-            <img
-              className={styles.sidebarFriendImg}
-              src='../assets/person/2.jpeg'
-            />
-            <span className={styles.sidebarFriendName}>Jane Lee</span>
-          </li>
-
-          <li className={styles.sidebarFriend}>
-            <img
-              className={styles.sidebarFriendImg}
-              src='../assets/person/2.jpeg'
-            />
-            <span className={styles.sidebarFriendName}>Jane Lee</span>
-          </li>
+          {Users.map((u) => (
+            <CloseFriend key={u.id} user={u} />
+          ))}
         </ul>
       </div>
     </div>

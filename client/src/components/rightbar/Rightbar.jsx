@@ -1,5 +1,7 @@
 import React from 'react';
 import styles from './Rightbar.module.css';
+import { Users } from '../../dummyData';
+import Online from '../online/Online';
 
 const Rightbar = (props) => {
   return (
@@ -15,41 +17,9 @@ const Rightbar = (props) => {
         <img className={styles.rightbarAd} src='../assets/ad.png' alt='' />
         <h4 className={styles.rightbarTitle}>Online Friends</h4>
         <ul className={styles.rightbarFriendList}>
-          <li className={styles.rightbarFriend}>
-            <div className={styles.rightbarProfileImgContainer}>
-              <img
-                className={styles.rightbarProfileImg}
-                src='../assets/person/3.jpeg'
-                alt=''
-              />
-              <span className={styles.rightbarOnline}></span>
-            </div>
-            <span className={styles.rightbarUsername}>John Carter</span>
-          </li>
-
-          <li className={styles.rightbarFriend}>
-            <div className={styles.rightbarProfileImgContainer}>
-              <img
-                className={styles.rightbarProfileImg}
-                src='../assets/person/3.jpeg'
-                alt=''
-              />
-              <span className={styles.rightbarOnline}></span>
-            </div>
-            <span className={styles.rightbarUsername}>John Carter</span>
-          </li>
-
-          <li className={styles.rightbarFriend}>
-            <div className={styles.rightbarProfileImgContainer}>
-              <img
-                className={styles.rightbarProfileImg}
-                src='../assets/person/3.jpeg'
-                alt=''
-              />
-              <span className={styles.rightbarOnline}></span>
-            </div>
-            <span className={styles.rightbarUsername}>John Carter</span>
-          </li>
+          {Users.map((u) => (
+            <Online key={u.id} user={u} />
+          ))}
         </ul>
       </div>
     </div>
