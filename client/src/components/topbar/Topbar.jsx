@@ -4,12 +4,15 @@ import SearchIcon from '@mui/icons-material/Search';
 import PersonIcon from '@mui/icons-material/Person';
 import ChatIcon from '@mui/icons-material/Chat';
 import NotificationsIcon from '@mui/icons-material/Notifications';
+import { Link } from 'react-router-dom';
 
 const Topbar = (props) => {
   return (
     <div className={styles.topbarContainer}>
       <div className={styles.topbarLeft}>
-        <span className={styles.logo}>Mr.Lee Social</span>
+        <Link to={'/'} style={{ textDecoration: 'none' }}>
+          <span className={styles.logo}>Mr.Lee Social</span>
+        </Link>
       </div>
       <div className={styles.topbarCenter}>
         <div className={styles.searchBar}>
