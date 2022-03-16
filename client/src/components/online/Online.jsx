@@ -10,6 +10,7 @@ const Online = ({ user }) => {
           className={styles.rightbarProfileImg}
           src={PF + user.profilePicture}
           alt=''
+          crossOrigin='anonymous'
         />
         <span className={styles.rightbarOnline}></span>
       </div>

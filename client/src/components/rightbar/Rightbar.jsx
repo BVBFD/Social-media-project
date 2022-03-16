@@ -9,13 +9,21 @@ const Rightbar = ({ user }) => {
     return (
       <>
         <div className={styles.birthdayContainer}>
-          <img className={styles.birthdayImg} src={`${PF}gift.png`} />
+          <img
+            className={styles.birthdayImg}
+            src={`${PF}gift.png`}
+            crossOrigin='anonymous'
+          />
           <span className={styles.birthdayText}>
             <b>Pola Foster</b> and <b> 3 other friends </b> have a birthday
             today
           </span>
         </div>
-        <img className={styles.rightbarAd} src={`${PF}ad.png`} />
+        <img
+          className={styles.rightbarAd}
+          src={`${PF}ad.png`}
+          crossOrigin='anonymous'
+        />
         <h4 className={styles.rightbarTitle}>Online Friends</h4>
         <ul className={styles.rightbarFriendList}>
           {Users.map((u) => (
@@ -58,6 +66,7 @@ const Rightbar = ({ user }) => {
             <img
               src={`${PF}person/1.jpeg`}
               className={styles.rightbarFollowingImg}
+              crossOrigin='anonymous'
             />
             <span className={styles.rightbarFollowingName}>John Carter</span>
           </div>
@@ -66,6 +75,7 @@ const Rightbar = ({ user }) => {
             <img
               src={`${PF}person/2.jpeg`}
               className={styles.rightbarFollowingImg}
+              crossOrigin='anonymous'
             />
             <span className={styles.rightbarFollowingName}>John Carter</span>
           </div>
@@ -74,6 +84,7 @@ const Rightbar = ({ user }) => {
             <img
               src={`${PF}person/3.jpeg`}
               className={styles.rightbarFollowingImg}
+              crossOrigin='anonymous'
             />
             <span className={styles.rightbarFollowingName}>John Carter</span>
           </div>
@@ -82,6 +93,7 @@ const Rightbar = ({ user }) => {
             <img
               src={`${PF}person/4.jpeg`}
               className={styles.rightbarFollowingImg}
+              crossOrigin='anonymous'
             />
             <span className={styles.rightbarFollowingName}>John Carter</span>
           </div>
@@ -90,6 +102,7 @@ const Rightbar = ({ user }) => {
             <img
               src={`${PF}person/5.jpeg`}
               className={styles.rightbarFollowingImg}
+              crossOrigin='anonymous'
             />
             <span className={styles.rightbarFollowingName}>John Carter</span>
           </div>

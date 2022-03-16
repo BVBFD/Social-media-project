@@ -8,7 +8,7 @@ import Register from './pages/register/Register';
 
 const App = (props) => {
   const { user } = useContext(AuthContext);
-
+  console.log(user);
   return (
     <Routes>
       <Route path={'/'} element={user ? <Home /> : <Register />} />

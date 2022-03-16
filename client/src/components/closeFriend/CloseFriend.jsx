@@ -6,7 +6,11 @@ const CloseFriend = ({ user }) => {
 
   return (
     <li className={styles.sidebarFriend}>
-      <img className={styles.sidebarFriendImg} src={PF + user.profilePicture} />
+      <img
+        className={styles.sidebarFriendImg}
+        src={PF + user.profilePicture}
+        crossOrigin='anonymous'
+      />
       <span className={styles.sidebarFriendName}>{user.username}</span>
     </li>
   );

@@ -31,10 +31,12 @@ const Profile = (props) => {
               <img
                 className={styles.profileCoverImg}
                 src={user.coverPicture || PF + 'person/noCover.png'}
+                crossOrigin='anonymous'
               />
               <img
                 className={styles.profileUserImg}
                 src={user.profilePicture || PF + `person/noAvatar.png`}
+                crossOrigin='anonymous'
               />
             </div>
             <div className={styles.profileInfo}>

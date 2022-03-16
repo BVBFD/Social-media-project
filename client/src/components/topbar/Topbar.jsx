@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styles from './Topbar.module.css';
 import SearchIcon from '@mui/icons-material/Search';
 import PersonIcon from '@mui/icons-material/Person';
 import ChatIcon from '@mui/icons-material/Chat';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../context/AuthContext';
 
 const Topbar = (props) => {
+  const { user } = useContext(AuthContext);
+  const PF = process.env.REACT_APP_PUBLIC_FOLDER;
+
   return (
     <div className={styles.topbarContainer}>
       <div className={styles.topbarLeft}>
@@ -44,7 +48,17 @@ const Topbar = (props) => {
             <span className={styles.topbarIconBadge}>1</span>
           </div>
         </div>
-        <img className={styles.topbarImg} src='../assets/person/1.jpeg' />
+        <Link to={`/profile/${user.username}`}>
+          <img
+            className={styles.topbarImg}
+            src={
+              user.profilePicture
+                ? PF + user.profilePicture
+                : PF + 'person/noAvatar.png'
+            }
+            crossOrigin='anonymous'
+          />
+        </Link>
       </div>
     </div>
   );
