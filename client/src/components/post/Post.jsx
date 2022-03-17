@@ -43,8 +43,8 @@ const Post = ({ post }) => {
                 className={styles.postProfileImg}
                 src={
                   user.profilePicture
-                    ? user.profilePicture
-                    : PF + 'person/noAvatar.png'
+                    ? `${PF}${user.profilePicture}`
+                    : `${PF}person/noAvatar.png`
                 }
                 crossOrigin='anonymous'
               />

@@ -15,10 +15,6 @@ dotenv.config();
 
 const app = express();
 
-mongoose.connect(process.env.MONGO_URL, () => {
-  console.log('Connected to MongoDB');
-});
-
 // middleware
 app.use(express.json());
 app.use(helmet());
@@ -55,6 +51,10 @@ app.get('/lee', (req, res, next) => {
 app.use('/api/users', userRoute);
 app.use('/api/auth', authRoute);
 app.use('/api/posts', postRoute);
+
+mongoose.connect(process.env.MONGO_URL, () => {
+  console.log('Connected to MongoDB');
+});
 
 app.listen(8800, () => {
   console.log('Backend server is running!');

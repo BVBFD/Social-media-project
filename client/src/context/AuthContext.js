@@ -12,7 +12,7 @@ const INITIAL_STATE = {
     followings: [],
     from: 'South Korea',
     isAdmin: false,
-    profilePicture: '',
+    profilePicture: '/person/1.jpeg',
     relationship: 1,
     updatedAt: '2022-03-12T01:59:16.630Z',
     username: 'Lee Seong Eun',

@@ -13,12 +13,14 @@ const Profile = (props) => {
   const username = useParams().username;
 
   useEffect(() => {
-    const fetchPosts = async () => {
+    const fetchUsers = async () => {
       const res = await axios.get(`/users?username=${username}`);
       setUser(res.data);
     };
-    fetchPosts();
-  }, []);
+    fetchUsers();
+  }, [username]);
+
+  console.log(user);
 
   return (
     <>
@@ -30,12 +32,20 @@ const Profile = (props) => {
             <div className={styles.profileCover}>
               <img
                 className={styles.profileCoverImg}
-                src={user.coverPicture || PF + 'person/noCover.png'}
+                src={
+                  user.coverPicture
+                    ? `${PF}${user.coverPicture}`
+                    : `${PF}person/noCover.png`
+                }
                 crossOrigin='anonymous'
               />
               <img
                 className={styles.profileUserImg}
-                src={user.profilePicture || PF + `person/noAvatar.png`}
+                src={
+                  user.profilePicture
+                    ? `${PF}${user.profilePicture}`
+                    : `${PF}person/noAvatar.png`
+                }
                 crossOrigin='anonymous'
               />
             </div>

@@ -40,6 +40,25 @@ router.delete('/:id', async (req, res, next) => {
     return res.status(403).json('You can delete only your account!');
   }
 });
+// get friends
+router.get('/friends/:userId', async (req, res, next) => {
+  try {
+    const user = await User.findById(req.params.userId);
+    const friends = await Promise.all(
+      user.followings.map((friendId) => {
+        return User.findById(friendId);
+      })
+    );
+    let friendList = [];
+    friends.map((friend) => {
+      const { _id, username, profilePicture } = friend;
+      friendList.push({ _id, username, profilePicture });
+    });
+    res.status(200).json(friendList);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+});
 // get a user
 router.get('/', async (req, res, next) => {
   const userId = req.query.userId;
