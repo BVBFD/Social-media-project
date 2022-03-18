@@ -1,7 +1,8 @@
 import React from 'react';
 import styles from './Message.module.css';
+import { format } from 'timeago.js';
 
-const Message = ({ own }) => {
+const Message = ({ message, own }) => {
   return (
     <div
       className={own ? [styles.message, styles.own].join(' ') : styles.message}
@@ -12,14 +13,9 @@ const Message = ({ own }) => {
           src={`${process.env.REACT_APP_PUBLIC_FOLDER}person/1.jpeg`}
           crossOrigin='anonymous'
         />
-        <p className={styles.messageText}>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta veniam
-          quisquam dignissimos amet maiores tenetur blanditiis iure, ipsam,
-          facilis incidunt fugit nemo veritatis molestiae quaerat consectetur,
-          optio totam eos. Illum.
-        </p>
+        <p className={styles.messageText}>{message.text}</p>
       </div>
-      <div className={styles.messageBottom}>1 hour ago</div>
+      <div className={styles.messageBottom}>{format(message.createdAt)}</div>
     </div>
   );
 };
