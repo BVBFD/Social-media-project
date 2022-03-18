@@ -6,6 +6,8 @@ import morgan from 'morgan';
 import userRoute from './routes/users.js';
 import authRoute from './routes/auth.js';
 import postRoute from './routes/posts.js';
+import conversationsRoute from './routes/conversations.js';
+import messagesRoute from './routes/messages.js';
 import multer from 'multer';
 import cors from 'cors';
 import path, { dirname } from 'path';
@@ -51,6 +53,8 @@ app.get('/lee', (req, res, next) => {
 app.use('/api/users', userRoute);
 app.use('/api/auth', authRoute);
 app.use('/api/posts', postRoute);
+app.use('/api/conversations', conversationsRoute);
+app.use('/api/messages', messagesRoute);
 
 mongoose.connect(process.env.MONGO_URL, () => {
   console.log('Connected to MongoDB');
