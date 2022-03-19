@@ -14,6 +14,7 @@ const Messenger = (props) => {
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState('');
   const [arrivalMessage, setArrivalMessage] = useState(null);
+  const [onlineUsers, setOnlineUsers] = useState([]);
   const socket = useRef();
   const { user } = useContext(AuthContext);
   const scrollRef = useRef();
@@ -44,7 +45,9 @@ const Messenger = (props) => {
   useEffect(() => {
     socket.current.emit('addUser', user._id);
     socket.current.on('getUsers', (users) => {
-      console.log(users);
+      setOnlineUsers(
+        user.followings.filter((f) => users.some((u) => u.userId === f))
+      );
     });
   }, [user]);
 
@@ -63,7 +66,7 @@ const Messenger = (props) => {
   useEffect(() => {
     const getMessage = async () => {
       try {
-        const res = await axios.get(`/messages/${currentChat._id}`);
+        const res = await axios.get(`/messages/${currentChat?._id}`);
         setMessages(res.data);
       } catch (err) {
         console.log(err);
@@ -157,9 +160,11 @@ const Messenger = (props) => {
         </div>
         <div className={styles.chatOnline}>
           <div className={styles.chatOnlineWrapper}>
-            <ChatOnline />
-            <ChatOnline />
-            <ChatOnline />
+            <ChatOnline
+              onlineUsers={onlineUsers}
+              currentId={user._id}
+              setCurrentChat={setCurrentChat}
+            />
           </div>
         </div>
       </div>
